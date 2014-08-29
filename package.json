@@ -1,0 +1,25 @@
+{
+  "name": "livebuy.la",
+  "version": "0.0.0",
+  "description": "\"To Live and Buy in LA\" website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/troywarr/livebuy.la.git"
+  },
+  "author": "Troy Warr <troy3000@gmail.com> (http://troywarr.info/)",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/troywarr/livebuy.la/issues"
+  },
+  "homepage": "https://github.com/troywarr/livebuy.la",
+  "devDependencies": {
+    "jade": "^1.5.0",
+    "metalsmith": "^0.10.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-templates": "^0.5.2"
+  }
+}
