@@ -1,6 +1,6 @@
 ---
 title: Home
-template: home.jade
+template: home.hbt
 ---
 
 Hi, this is my start page; neat ain't it? ;)
