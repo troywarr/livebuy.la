@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/troywarr/livebuy.la",
   "devDependencies": {
+    "connect": "^3.1.1",
+    "connect-livereload": "^0.4.0",
     "handlebars": "^2.0.0-beta.1",
     "metalsmith": "^0.10.0",
     "metalsmith-coffee": "0.0.2",
@@ -24,6 +26,8 @@
     "metalsmith-less": "^0.1.2",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.3.2",
-    "metalsmith-templates": "^0.5.2"
+    "metalsmith-templates": "^0.5.2",
+    "metalsmith-watch": "^0.1.1",
+    "serve-static": "^1.5.3"
   }
 }

@@ -1,4 +1,5 @@
 // requires
+
 var Metalsmith  = require('metalsmith'),
     markdown    = require('metalsmith-markdown'),
     templates   = require('metalsmith-templates'),
@@ -6,14 +7,24 @@ var Metalsmith  = require('metalsmith'),
     permalinks  = require('metalsmith-permalinks'),
     coffee      = require('metalsmith-coffee'),
     less        = require('metalsmith-less'),
+    watch       = require('metalsmith-watch'),
+    connect     = require('connect'),
+    liveReload  = require('connect-livereload'),
+    serveStatic = require('serve-static'),
     Handlebars  = require('handlebars'),
     fs          = require('fs');
 
-// partials
+
+
+// register partials
+
 Handlebars.registerPartial('header', fs.readFileSync(__dirname + '/templates/partials/header.hbt').toString());
 Handlebars.registerPartial('footer', fs.readFileSync(__dirname + '/templates/partials/footer.hbt').toString());
 
+
+
 // plugin to add a template key to posts (so we don't need to specify the template for every post)
+
 var findTemplate = function(config) {
   var pattern = new RegExp(config.pattern);
   return function(files, metalsmith, done) {
@@ -29,8 +40,25 @@ var findTemplate = function(config) {
   };
 };
 
+
+
+// start dev server
+
+connect()
+  .use(liveReload({
+    port: 35729
+  }))
+  .use(serveStatic(__dirname + '/build'))
+  .listen(3000);
+
+
+
 // build
+
 Metalsmith(__dirname)
+  .use(watch({
+    livereload: true
+  }))
   .use(collections({
     pages: {
       pattern: 'content/pages/*.md'
